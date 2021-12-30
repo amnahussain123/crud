@@ -14,8 +14,8 @@
 <thead>
   <tr>
     <th scope="col">#</th>
-    <th scope="col">Name</th>
-    <th scope="col">Email</th>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
     <th width="200px">Action</th>
   </tr>
 </thead>
@@ -24,8 +24,8 @@
   for(var i = 0; i< data.length; i++) {%>  
   <tr>
     <th scope="row"><%= (i+1) %></th>
-    <td><%= data[i].name%></td>
-    <td><%= data[i].email%></td>
+    <td><%= data[i].title%></td>
+    <td><%= data[i].description%></td>
     <td>
       <a class="btn btn-success edit" data-id='<%=data[i].id%>' href="" data-toggle="modal" data-target="#myModalEdit">EDIT</a>&nbsp;<a class="btn btn-danger delete" href="./users/delete/<%=data[i].id%>">DEL</a>                                            
    </td>
@@ -34,7 +34,7 @@
            
    }else{ %>
        <tr>
-          <td colspan="3">No user</td>
+          <td colspan="3">No Test</td>
        </tr>
     <% } %>    
   
@@ -46,13 +46,13 @@
       <!-- Modal add content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Add New User</h4>
+          <h4 class="modal-title">Add New Test</h4>
         </div>
         <div class="modal-body">
-          <form action="/users" method="post">
+          <form action="/api/testings" method="post">
             <div class="form-group">
-            <input class="form-control" name="name" type="text" placeholder="name"><br>
-            <input class="form-control" name="email" type="email" placeholder="email"><br>
+            <input class="form-control" name="title" type="text" placeholder="Title"><br>
+            <input class="form-control" name="description" type="text" placeholder="Description"><br>
             <button type="submit" name="submit" class="btn btn-primary">SUBMIT</button>
             </div>
           </form>
